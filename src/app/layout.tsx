@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     description: AboutMe.description,
     keywords: ['hiekki', 'kevin', 'abernathy', 'kevin abernathy', 'software developer', 'nextjs', 'tailwindcss', 'typescript'],
     authors: [{ name: 'Hiekki', url: 'https://hiekki.me' }],
-    openGraph: {
+    twitter: {
         images: '/assets/metadataPhoto.png',
     },
 };
