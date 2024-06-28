@@ -7,7 +7,7 @@ import { useState } from 'react';
 import ThemeToggle from './ThemeToggle';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
-export const MobileNavbar = ({ links }: { links: Record<string, string>[] }) => {
+export const MobileNavbar = ({ links }: { links: { name: string; path: string; icon: React.ReactNode }[] }) => {
     const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false);
 
@@ -29,11 +29,12 @@ export const MobileNavbar = ({ links }: { links: Record<string, string>[] }) => 
                             href={link.path}
                             key={index}
                             className={`${
-                                link.path === pathname && 'text-purple-500 border-b-2 border-purple-500'
-                            } font-medium text-2xl hover:text-purple-600 dark:hover:text-purple-400 transition-all capitalize`}
+                                link.path === pathname && 'text-purple-500 border-b-2 border-purple-500 font-bold'
+                            } flex items-center justify-center text-2xl hover:text-purple-600 dark:hover:text-purple-400 transition-all capitalize`}
                             onClick={() => setIsOpen(!isOpen)}
                         >
-                            {link.name}
+                            <div>{link.icon}</div>
+                            <div className="ml-2">{link.name}</div>
                         </Link>
                     ))}
                 </ul>

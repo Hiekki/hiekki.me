@@ -56,16 +56,16 @@ export const AnimatedTooltip = () => {
                                     rotate: rotate,
                                     whiteSpace: 'nowrap',
                                 }}
-                                className="absolute -top-16 -left-1/2 translate-x-1/2 flex text-xs flex-col items-center justify-center rounded-md bg-black z-10 shadow-xl px-4 py-2"
+                                className="absolute -top-16 -left-1/2 translate-x-1/2 flex text-xs flex-col items-center justify-center rounded-md bg-black shadow-xl px-4 py-2"
                             >
-                                <div className="absolute inset-x-10 z-10 w-[20%] -bottom-px bg-gradient-to-r from-transparent via-purple-600 to-transparent h-px " />
-                                <div className="absolute left-10 w-[40%] z-10 -bottom-px bg-gradient-to-r from-transparent via-purple-400 to-transparent h-px " />
-                                <div className="font-bold text-white relative z-10 text-base">{item.name}</div>
+                                <div className="absolute inset-x-10 w-[20%] -bottom-px bg-gradient-to-r from-transparent via-purple-600 to-transparent h-px " />
+                                <div className="absolute left-10 w-[40%] -bottom-px bg-gradient-to-r from-transparent via-purple-400 to-transparent h-px " />
+                                <div className="font-bold text-white relative text-base">{item.name}</div>
                                 <div className="text-white text-xs">{item.skill_level}</div>
                             </motion.div>
                         )}
                     </AnimatePresence>
-                    <div className="flex flex-row object-contain !m-0 !p-0 object-top rounded-full group-hover:scale-105 group-hover:z-10 relative transition duration-500">
+                    <div className="">
                         <div className="border border-purple-500 rounded-full flex justify-center items-center text-purple-500 bg-transparent hover:text-white dark:hover:text-white hover:border-purple-600 dark:hover:border-purple-400 hover:transition-all duration-500 ease-in-out">
                             <Image
                                 onMouseMove={handleMouseMove}
@@ -73,7 +73,7 @@ export const AnimatedTooltip = () => {
                                 width={50}
                                 src={`/assets/skills/${item.key}.png`}
                                 alt={item.name}
-                                className="object-contain !m-0 !p-1 object-top rounded-full border-1 group-hover:scale-105 group-hover:z-30 border-purple-500 relative transition duration-500"
+                                className="object-contain !m-0 !p-1 rounded-full border-1 group-hover:scale-105 border-purple-500 relative transition duration-500"
                             />
                         </div>
                     </div>

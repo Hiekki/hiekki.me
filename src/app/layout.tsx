@@ -10,12 +10,13 @@ import { AboutMe } from '@/utils/constants';
 const spaceMono = Space_Mono({ subsets: ['latin'], weight: ['400', '700'], variable: '--font-spaceMono' });
 
 export const metadata: Metadata = {
+    metadataBase: new URL('https://hiekki.me'),
     title: 'Hiekki | Portfolio',
     description: AboutMe.description,
+    keywords: ['hiekki', 'kevin', 'abernathy', 'kevin abernathy', 'software developer', 'nextjs', 'tailwindcss', 'typescript'],
+    authors: [{ name: 'Hiekki', url: 'https://hiekki.me' }],
     openGraph: {
-        title: 'Hiekki | Portfolio',
-        description: AboutMe.description,
-        images: ['https://hiekki.me/assets/hiekki-portfolio-transparent.svg'],
+        images: '/assets/metadataPhoto.png',
     },
 };
 

@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
+import { IoHomeOutline, IoPersonOutline, IoCodeWorkingOutline, IoDocumentTextOutline } from 'react-icons/io5';
 
 //Components
 import { FlipWords } from './ui/flip-words';
@@ -9,10 +10,10 @@ import ThemeToggle from './ThemeToggle';
 import { MobileNavbar } from './MobileNavbar';
 
 const links = [
-    { name: 'home', path: '/' },
-    { name: 'resume', path: '/resume' },
-    { name: 'work', path: '/work' },
-    { name: 'contact', path: '/contact' },
+    { name: 'home', path: '/', icon: <IoHomeOutline /> },
+    { name: 'resume', path: '/resume', icon: <IoDocumentTextOutline /> },
+    { name: 'projects', path: '/projects', icon: <IoCodeWorkingOutline /> },
+    { name: 'contact', path: '/contact', icon: <IoPersonOutline /> },
 ];
 
 export default function Navbar() {
@@ -32,10 +33,11 @@ export default function Navbar() {
                                     href={link.path}
                                     key={index}
                                     className={`${
-                                        link.path === pathname && 'text-purple-500 border-b-2 border-purple-500'
-                                    } font-medium hover:text-purple-600 dark:hover:text-purple-400 transition-all capitalize`}
+                                        link.path === pathname && 'text-purple-500 border-b-2 border-purple-500 font-bold'
+                                    } flex items-center justify-center hover:text-purple-600 dark:hover:text-purple-400 transition-all capitalize`}
                                 >
-                                    {link.name}
+                                    <div>{link.icon}</div>
+                                    <div className="ml-2">{link.name}</div>
                                 </Link>
                             );
                         })}

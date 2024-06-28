@@ -24,7 +24,7 @@ export default function Home() {
                                 <Link href={'/contact'}>Contact</Link>
                                 <BsChatLeftText className="text-xl" />
                             </Button>
-                            <div className="flex items-center justify-center w-full gap-2 mb-8 xl:mb-0">
+                            <div className="flex items-center justify-center w-full gap-2 mb-8 xl:mb-0 transition-all duration-1000 ease-in-out">
                                 <AnimatedTooltip />
                             </div>
                         </div>

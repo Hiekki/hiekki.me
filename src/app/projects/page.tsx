@@ -1,13 +1,10 @@
 import { Metadata } from 'next';
 
-import ContactInfo from '@/components/ContactInfo';
-
 export const metadata: Metadata = {
-    title: 'Hiekki | Contact',
+    title: 'Hiekki | Projects',
 };
 
-const Contact = () => {
-    // return <ContactInfo />;
+const Projects = () => {
     return (
         <section className="h-full">
             <div className="container mx-auto">Coming Soon™️</div>
@@ -15,4 +12,4 @@ const Contact = () => {
     );
 };
 
-export default Contact;
+export default Projects;

@@ -1,13 +1,9 @@
-import ResumeInfo from '@/components/ResumeInfo';
 import { Metadata } from 'next';
+
+import ResumeInfo from '@/components/ResumeInfo';
 
 export const metadata: Metadata = {
     title: 'Hiekki | Resume',
-    description: 'Testing new descriptions with different pages.',
-    openGraph: {
-        title: 'Hiekki | Resume',
-        description: 'Testing new descriptions with different pages.',
-    },
 };
 
 const Resume = () => {
