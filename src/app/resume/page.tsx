@@ -10,7 +10,7 @@ import { motion } from 'framer-motion';
 
 import { AboutMe, Experience, Education } from '@/utils/constants';
 
-export const Skills = {
+const Skills = {
     title: 'My Skills',
     description:
         'I am a self-taught developer with experience in JavaScript, TypeScript, React, Next.js, MySQL, MongoDB, Node.js, and TailwindCSS.',
