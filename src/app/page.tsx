@@ -5,6 +5,22 @@ import Photo from '@/components/Photo';
 import { Button } from '@/components/ui/button';
 import { AnimatedTooltip } from '@/components/ui/animated-tooltip';
 import Stats from '@/components/Stats';
+import { AboutMe } from '@/utils/constants';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    twitter: {
+        title: 'Hiekki | Portfolio',
+        description: AboutMe.description,
+        site: 'https://hiekki.me',
+        images: 'https://hiekki.me/assets/hiekki-portfolio-transparent.svg',
+        card: 'summary_large_image',
+    },
+    themeColor: [
+        { media: '(prefers-color-scheme: light)', color: '#a855f7' },
+        { media: '(prefers-color-scheme: dark)', color: '#a855f7' },
+    ],
+};
 
 export default function Home() {
     return (
@@ -17,9 +33,7 @@ export default function Home() {
                             Hello, I'm <br />
                             <span className="text-purple-500">Kevin Abernathy</span>
                         </h1>
-                        <p className="max-w-[500px] mb-9 text-black/80 dark:text-white/80">
-                            The things i do and am good at need to be added here at some point.
-                        </p>
+                        <p className="max-w-[500px] mb-9 text-black/80 dark:text-white/80">{AboutMe.description}</p>
                         <div className="flex flex-col xl:flex-row items-center justify-center">
                             <Button variant="outline" size="lg" className="uppercase flex items-center gap-2 mb-8 xl:mb-0">
                                 <Link href={'/contact'}>Contact</Link>

@@ -1,7 +1,7 @@
 const Contact = () => {
     return (
         <section className="h-full">
-            <div className="container mx-auto">contact page</div>
+            <div className="container mx-auto">Coming Soon™️</div>
         </section>
     );
 };
