@@ -6,21 +6,6 @@ import { Button } from '@/components/ui/button';
 import { AnimatedTooltip } from '@/components/ui/animated-tooltip';
 import Stats from '@/components/Stats';
 import { AboutMe } from '@/utils/constants';
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-    twitter: {
-        title: 'Hiekki | Portfolio',
-        description: AboutMe.description,
-        site: 'https://hiekki.me',
-        images: 'https://hiekki.me/assets/hiekki-portfolio-transparent.svg',
-        card: 'summary_large_image',
-    },
-    themeColor: [
-        { media: '(prefers-color-scheme: light)', color: '#a855f7' },
-        { media: '(prefers-color-scheme: dark)', color: '#a855f7' },
-    ],
-};
 
 export default function Home() {
     return (
