@@ -2,32 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+*::-webkit-scrollbar {
+    width: 7.5px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+*::-webkit-scrollbar-track {
+    background: var('bg-primary dark:bg-dark');
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+*::-webkit-scrollbar-thumb {
+    background: #a855f7;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+*::-webkit-scrollbar-thumb:hover {
+    background: #c084fc;
+}
+
+* {
+    scroll-behavior: smooth;
+}
+
+@layer base {
+    body {
+        @apply font-primary bg-primary dark:bg-dark text-black dark:text-white leading-loose;
+    }
+    .h1 {
+        @apply text-[48px] xl:text-[80px] leading-[1.1] font-semibold;
+    }
+    .h2 {
+        @apply text-[36px] xl:text-[48px] leading-[1.1] font-semibold;
+    }
+    .h3 {
+        @apply text-[20px] xl:text-[24px] leading-[1.1] font-semibold;
+    }
+}
+
+.no-visible-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+.no-visible-scrollbar::-webkit-scrollbar {
+    display: none;
 }
