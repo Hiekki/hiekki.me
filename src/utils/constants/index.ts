@@ -8,16 +8,8 @@ export const AboutMe = {
             description: 'Kevin Abernathy',
         },
         {
-            title: 'Phone Number',
-            description: '(629) 244.0074',
-        },
-        {
             title: 'Experience',
             description: '4+ Years',
-        },
-        {
-            title: 'Country',
-            description: 'United States',
         },
         {
             title: 'City',
