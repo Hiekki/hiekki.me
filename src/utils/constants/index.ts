@@ -25,7 +25,7 @@ export const AboutMe = {
         },
         {
             title: 'Email',
-            description: 'abernathy.k.n@gmail.com',
+            description: 'abernathy.kevin.n@gmail.com',
         },
     ],
 };
@@ -33,7 +33,8 @@ export const AboutMe = {
 export const Experience = {
     icon: '',
     title: 'My Experience',
-    description: 'TODO: Add a description for my experiences.',
+    description:
+        'Designed, developed, and maintained custom Discord bots and websites to meet specific client requirements. Oversaw and managed repositories of team members to ensure code cleanliness, consistency, and structure throughout the deployment process. Collaborated closely with clients to understand their needs and deliver tailored solutions, while ensuring high-quality standards and efficient workflow management.',
     info: [
         {
             company: 'Team Hydra',
@@ -46,7 +47,8 @@ export const Experience = {
 export const Education = {
     icon: '',
     title: 'My Education',
-    description: 'TODO: Add a description for my education.',
+    description:
+        'Self taught developer with experience in JavaScript, TypeScript, React, Next.js, MySQL, MongoDB, Node.js, and TailwindCSS. Currently looking into certifations.',
     info: [
         {
             insitution: 'Volunteer State Community College',

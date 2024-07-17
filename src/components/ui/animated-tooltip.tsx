@@ -31,12 +31,12 @@ export const AnimatedTooltip = () => {
         <>
             {items.map((item, idx) => (
                 <div
-                    className="relative group"
+                    className='group relative'
                     key={item.key}
                     onMouseEnter={() => setHoveredIndex(item.id)}
                     onMouseLeave={() => setHoveredIndex(null)}
                 >
-                    <AnimatePresence mode="popLayout">
+                    <AnimatePresence mode='popLayout'>
                         {hoveredIndex === item.id && (
                             <motion.div
                                 initial={{ opacity: 0, y: 20, scale: 0.6 }}
@@ -56,24 +56,24 @@ export const AnimatedTooltip = () => {
                                     rotate: rotate,
                                     whiteSpace: 'nowrap',
                                 }}
-                                className="absolute -top-16 -left-1/2 translate-x-1/2 flex text-xs flex-col items-center justify-center rounded-md bg-black shadow-xl px-4 py-2"
+                                className='absolute -left-1/2 -top-16 flex translate-x-1/2 flex-col items-center justify-center rounded-md bg-black px-4 py-2 text-xs shadow-xl'
                             >
-                                <div className="absolute inset-x-10 w-[20%] -bottom-px bg-gradient-to-r from-transparent via-purple-600 to-transparent h-px " />
-                                <div className="absolute left-10 w-[40%] -bottom-px bg-gradient-to-r from-transparent via-purple-400 to-transparent h-px " />
-                                <div className="font-bold text-white relative text-base">{item.name}</div>
-                                <div className="text-white text-xs">{item.skill_level}</div>
+                                <div className='absolute inset-x-10 -bottom-px h-px w-[20%] bg-gradient-to-r from-transparent via-purple-600 to-transparent' />
+                                <div className='absolute -bottom-px left-10 h-px w-[40%] bg-gradient-to-r from-transparent via-purple-400 to-transparent' />
+                                <div className='relative text-base font-bold text-white'>{item.name}</div>
+                                <div className='text-xs text-white'>{item.skill_level}</div>
                             </motion.div>
                         )}
                     </AnimatePresence>
-                    <div className="">
-                        <div className="border border-purple-500 rounded-full flex justify-center items-center text-purple-500 bg-transparent hover:text-white dark:hover:text-white hover:border-purple-600 dark:hover:border-purple-400 hover:transition-all duration-500 ease-in-out">
+                    <div className=''>
+                        <div className='flex items-center justify-center rounded-full border border-purple-500 bg-transparent text-purple-500 duration-500 ease-in-out hover:border-purple-600 hover:text-white hover:transition-all dark:hover:border-purple-400 dark:hover:text-white'>
                             <Image
                                 onMouseMove={handleMouseMove}
                                 height={50}
                                 width={50}
                                 src={`/assets/skills/${item.key}.png`}
                                 alt={item.name}
-                                className="object-contain !m-0 !p-1 rounded-full border-1 group-hover:scale-105 border-purple-500 relative transition duration-500"
+                                className='border-1 relative !m-0 rounded-full border-purple-500 object-contain !p-1 transition duration-500 group-hover:scale-105'
                             />
                         </div>
                     </div>

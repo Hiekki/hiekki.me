@@ -9,8 +9,8 @@ export const metadata: Metadata = {
 const Contact = () => {
     // return <ContactInfo />;
     return (
-        <section className="h-full">
-            <div className="container mx-auto">Coming Soon™️</div>
+        <section className='h-full'>
+            <div className='container mx-auto'>Coming Soon™️</div>
         </section>
     );
 };

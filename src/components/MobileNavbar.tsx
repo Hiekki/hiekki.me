@@ -13,28 +13,28 @@ export const MobileNavbar = ({ links }: { links: { name: string; path: string; i
 
     return (
         <Sheet open={isOpen}>
-            <SheetTrigger className="flex justify-center items-center">
+            <SheetTrigger className='flex items-center justify-center'>
                 <CiMenuFries
-                    className="text-[32px] cursor-pointer hover:text-purple-600 hover:dark:text-purple-400 transition-all"
+                    className='cursor-pointer text-[32px] transition-all hover:text-purple-600 hover:dark:text-purple-400'
                     onClick={() => setIsOpen(!isOpen)}
                 />
             </SheetTrigger>
-            <SheetContent className="flex flex-col" onBackgroundClick={() => setIsOpen(!isOpen)}>
-                <span className="left-5 top-5 container absolute">
+            <SheetContent className='flex flex-col' onBackgroundClick={() => setIsOpen(!isOpen)}>
+                <span className='container absolute left-5 top-5'>
                     <ThemeToggle />
                 </span>
-                <ul className="flex flex-1 list-none flex-col items-center justify-center gap-6">
+                <ul className='flex flex-1 list-none flex-col items-center justify-center gap-6'>
                     {links.map((link, index) => (
                         <Link
                             href={link.path}
                             key={index}
                             className={`${
-                                link.path === pathname && 'text-purple-500 border-b-2 border-purple-500 font-bold'
-                            } flex items-center justify-center text-2xl hover:text-purple-600 dark:hover:text-purple-400 transition-all capitalize`}
+                                link.path === pathname && 'border-b-2 border-purple-500 font-bold text-purple-500'
+                            } flex items-center justify-center text-2xl capitalize transition-all hover:text-purple-600 dark:hover:text-purple-400`}
                             onClick={() => setIsOpen(!isOpen)}
                         >
                             <div>{link.icon}</div>
-                            <div className="ml-2">{link.name}</div>
+                            <div className='ml-2'>{link.name}</div>
                         </Link>
                     ))}
                 </ul>

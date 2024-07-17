@@ -21,16 +21,16 @@ export default function ThemeToggle() {
     return (
         <>
             <div
-                className="relative w-16 h-8 flex items-center bg-zinc-300 dark:bg-zinc-700 rounded-full cursor-pointer p-1 shadow-lg"
+                className='relative flex h-8 w-16 cursor-pointer items-center rounded-full bg-zinc-300 p-1 shadow-lg dark:bg-zinc-700'
                 onClick={() => setDarkMode(!darkMode)}
             >
-                <LuMoon className="w-6 h-6 text-black" size={18} />
+                <LuMoon className='h-6 w-6 text-black' size={18} />
                 <div
-                    className={`absolute bg-yellow-500 dark:bg-black w-6 h-6 rounded-full shadow-md duration-300 ${
+                    className={`absolute h-6 w-6 rounded-full bg-yellow-500 shadow-md duration-300 dark:bg-black ${
                         darkMode ? 'ml-0' : 'ml-8'
                     }`}
                 />
-                <LuSun className="ml-auto w-6 h-6 text-yellow-500" size={18} />
+                <LuSun className='ml-auto h-6 w-6 text-yellow-500' size={18} />
             </div>
         </>
     );

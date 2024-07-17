@@ -19,7 +19,7 @@ const SheetOverlay = React.forwardRef<
     <SheetPrimitive.Overlay
         className={cn(
             'fixed inset-0 z-50 bg-black/60 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
-            className
+            className,
         )}
         {...props}
         ref={ref}
@@ -41,7 +41,7 @@ const sheetVariants = cva(
         defaultVariants: {
             side: 'right',
         },
-    }
+    },
 );
 
 interface SheetContentProps extends React.ComponentPropsWithoutRef<typeof SheetPrimitive.Content>, VariantProps<typeof sheetVariants> {
@@ -54,13 +54,13 @@ const SheetContent = React.forwardRef<React.ElementRef<typeof SheetPrimitive.Con
             <SheetOverlay onClick={onBackgroundClick} />
             <SheetPrimitive.Content ref={ref} className={cn(sheetVariants({ side }), className)} {...props}>
                 {children}
-                <SheetPrimitive.Close className="absolute right-5 top-5 transition-opacity outline-none" onClick={onBackgroundClick}>
-                    <IoClose className="container text-3xl text-black dark:text-white" />
-                    <span className="sr-only">Close</span>
+                <SheetPrimitive.Close className='absolute right-5 top-5 outline-none transition-opacity' onClick={onBackgroundClick}>
+                    <IoClose className='container text-3xl text-black dark:text-white' />
+                    <span className='sr-only'>Close</span>
                 </SheetPrimitive.Close>
             </SheetPrimitive.Content>
         </SheetPortal>
-    )
+    ),
 );
 SheetContent.displayName = SheetPrimitive.Content.displayName;
 

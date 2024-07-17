@@ -24,7 +24,7 @@ const buttonVariants = cva(
             variant: 'default',
             size: 'default',
         },
-    }
+    },
 );
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {

@@ -25,11 +25,11 @@ const Stairs = () => {
                     <motion.div
                         key={index}
                         variants={stairAnimation}
-                        initial="initial"
-                        animate="animate"
-                        exit="exit"
+                        initial='initial'
+                        animate='animate'
+                        exit='exit'
                         transition={{ duration: 0.4, ease: 'easeInOut', delay: value * 0.1 }}
-                        className="z-30 h-full w-full bg-zinc-300 dark:bg-zinc-700 relative"
+                        className='relative z-30 h-full w-full bg-zinc-300 dark:bg-zinc-700'
                     ></motion.div>
                 );
             })}
