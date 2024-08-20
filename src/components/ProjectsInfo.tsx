@@ -13,56 +13,14 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/t
 import Link from 'next/link';
 import Image from 'next/image';
 import ProjectsSliderButtons from './ProjectsSliderButtons';
-
-const projects = [
-    {
-        number: '01',
-        title: 'Elenora',
-        description:
-            "Elenora is a top performing Discord bot for the RuneScape MMORPG game. It deals with administrative features, member updates and information, and other general information about the game. Elenora was one of the first projects that was used to learn basic JavaScript/TypeScript skills and functionality, file and code organization, databases, API's, and much more on the journey into programming and developing.",
-        stack: [{ name: 'TypeScript' }, { name: 'MySQL' }, { name: 'TailwindCSS' }, { name: 'Git' }],
-        image: '/assets/projects/elenora.png',
-        live: 'https://elenora.gg/',
-        github: '#',
-    },
-    {
-        number: '02',
-        title: 'Simple Slash',
-        description:
-            "A simple wrapper for creating slash commands for Discord bots. Discord's conventional way of creating slash commands is very messy and time consuming to create. This project aims to make it easier for developers to create slash commands for their bots.",
-        stack: [{ name: 'TypeScript' }, { name: 'Git' }],
-        image: '/assets/projects/simpleslash.png',
-        live: 'https://www.npmjs.com/package/@elenoragroup/simple-slash',
-        github: 'https://github.com/Hiekki/SimpleSlash',
-    },
-    {
-        number: '03',
-        title: 'Stubby',
-        description:
-            'A simple Discord ticketing system bot. Allows you to create different categories that allows users to open a ticket based on those categories and have one on one conversations with those individuals.',
-        stack: [{ name: 'TypeScript' }, { name: 'MySQL' }, { name: 'Node.js' }, { name: 'Git' }],
-        image: '/assets/projects/stubby.png',
-        live: '#',
-        github: 'https://github.com/Hiekki/Stubby',
-    },
-    {
-        number: '04',
-        title: 'NotiFyre',
-        description:
-            'A simple Discord reminder bot. This bot allows you to use simple times like 1h/1hour, 30m/30minutes, or 1d12hr15m, or specific times like 7pm, 7:00pm, or 19:00, or more complex dates and times like "next Friday at 3pm" or "the first Tuesday of next month at noon".',
-        stack: [{ name: 'TypeScript' }, { name: 'MySQL' }, { name: 'Node.js' }, { name: 'Git' }],
-        image: '/assets/projects/notifyre.png',
-        live: '#',
-        github: 'https://github.com/Hiekki/NotiFyre',
-    },
-];
+import { Projects } from '@/utils/constants';
 
 const ProjectsInfo = () => {
-    const [project, setProject] = useState(projects[0]);
+    const [project, setProject] = useState(Projects[0]);
 
     const handleSlideChange = (swiper: any) => {
         const index = swiper.activeIndex;
-        setProject(projects[index]);
+        setProject(Projects[index]);
     };
 
     return (
@@ -126,11 +84,11 @@ const ProjectsInfo = () => {
                         </div>
                     </div>
                     <div className='w-full xl:w-[50%]'>
-                        <Swiper spaceBetween={50} slidesPerView={1} className='mb-12 xl:h-[525px]' onSlideChange={handleSlideChange}>
-                            {projects.map((project, index) => {
+                        <Swiper spaceBetween={50} slidesPerView={1} className='mb-12 xl:h-[520px]' onSlideChange={handleSlideChange}>
+                            {Projects.map((project, index) => {
                                 return (
                                     <SwiperSlide key={index} className='w-full'>
-                                        <div className='group relative flex h-[525px] items-center justify-center bg-zinc-200 dark:bg-zinc-700'>
+                                        <div className='group relative flex h-[460px] items-center justify-center bg-zinc-200 dark:bg-zinc-700'>
                                             <div className='absolute bottom-0 top-0 z-10 h-full w-full bg-black/10' />
                                             <div className='relative h-full w-full'>
                                                 <Image src={project.image} alt='' fill className='object-cover' />

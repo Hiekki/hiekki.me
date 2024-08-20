@@ -62,3 +62,46 @@ export const Education = {
         },
     ],
 };
+
+export const Projects = [
+    {
+        number: '01',
+        title: 'Elenora',
+        description:
+            'Elenora is a feature rich RuneScape Clan administration discord bot with a wide variety of commands. The creation of Elenora was to provide a reliable, dependable, & helpful tool that would service any sized community.',
+        stack: [{ name: 'TypeScript' }, { name: 'MySQL' }, { name: 'TailwindCSS' }, { name: 'Git' }],
+        image: '/assets/projects/elenora.png',
+        live: 'https://elenora.gg/',
+        github: '#',
+    },
+    {
+        number: '02',
+        title: 'Simple Slash',
+        description:
+            "A simple wrapper for creating slash commands for Discord bots. Discord's conventional way of creating slash commands is very messy and time consuming to create. This project aims to make it easier for developers to create slash commands for their bots.",
+        stack: [{ name: 'TypeScript' }, { name: 'Git' }],
+        image: '/assets/projects/simpleslash.png',
+        live: 'https://www.npmjs.com/package/@elenoragroup/simple-slash',
+        github: 'https://github.com/Hiekki/SimpleSlash',
+    },
+    {
+        number: '03',
+        title: 'Stubby',
+        description:
+            'A simple Discord ticketing system bot. Allows you to create different categories that allows users to open a ticket based on those categories and have one on one conversations with those individuals.',
+        stack: [{ name: 'TypeScript' }, { name: 'MySQL' }, { name: 'Node.js' }, { name: 'Git' }],
+        image: '/assets/projects/stubby.png',
+        live: '#',
+        github: 'https://github.com/Hiekki/Stubby',
+    },
+    {
+        number: '04',
+        title: 'NotiFyre',
+        description:
+            'A simple Discord reminder bot. This bot allows you to use simple times like 1h/1hour, 30m/30minutes, or 1d12hr15m, or specific times like 7pm, 7:00pm, or 19:00, or more complex dates and times like "next Friday at 3pm" or "the first Tuesday of next month at noon".',
+        stack: [{ name: 'TypeScript' }, { name: 'MySQL' }, { name: 'Node.js' }, { name: 'Git' }],
+        image: '/assets/projects/notifyre.png',
+        live: '#',
+        github: 'https://github.com/Hiekki/NotiFyre',
+    },
+];

@@ -6,6 +6,7 @@ import PageTransition from '@/components/PageTransition';
 import StairTransition from '@/components/StairTransition';
 import { Metadata, Viewport } from 'next';
 import { AboutMe } from '@/utils/constants';
+import { ThemeProvider } from '@/components/theme-provider';
 
 const spaceMono = Space_Mono({ subsets: ['latin'], weight: ['400', '700'], variable: '--font-spaceMono' });
 
@@ -35,9 +36,11 @@ export default function RootLayout({
     return (
         <html lang='en'>
             <body className={`${spaceMono.variable}`}>
-                <Navbar />
-                <StairTransition />
-                <PageTransition>{children}</PageTransition>
+                <ThemeProvider attribute='class' defaultTheme='system' enableSystem disableTransitionOnChange>
+                    <Navbar />
+                    <StairTransition />
+                    <PageTransition>{children}</PageTransition>
+                </ThemeProvider>
             </body>
         </html>
     );
