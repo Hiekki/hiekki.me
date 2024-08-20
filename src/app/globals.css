@@ -24,16 +24,23 @@
 
 @layer base {
     body {
-        @apply font-primary bg-primary dark:bg-dark text-black dark:text-white leading-loose;
+        @apply bg-primary font-primary leading-loose text-black dark:bg-dark dark:text-white;
     }
     .h1 {
-        @apply text-[48px] xl:text-[80px] leading-[1.1] font-semibold;
+        @apply text-[48px] font-semibold leading-[1.1] xl:text-[80px];
     }
     .h2 {
-        @apply text-[36px] xl:text-[48px] leading-[1.1] font-semibold;
+        @apply text-[36px] font-semibold leading-[1.1] xl:text-[48px];
     }
     .h3 {
-        @apply text-[20px] xl:text-[24px] leading-[1.1] font-semibold;
+        @apply text-[20px] font-semibold leading-[1.1] xl:text-[24px];
+    }
+    .text-outline {
+        -webkit-text-stroke: 1px #202020;
+    }
+
+    .text-outline-dark {
+        -webkit-text-stroke: 1px #ffffff;
     }
 }
 

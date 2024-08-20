@@ -1,3 +1,4 @@
+import ProjectsInfo from '@/components/ProjectsInfo';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -5,11 +6,7 @@ export const metadata: Metadata = {
 };
 
 const Projects = () => {
-    return (
-        <section className='h-full'>
-            <div className='container mx-auto'>Coming Soon™️</div>
-        </section>
-    );
+    return <ProjectsInfo />;
 };
 
 export default Projects;

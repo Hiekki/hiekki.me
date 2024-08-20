@@ -4,9 +4,9 @@ import CountUp from 'react-countup';
 
 const stats = [
     { name: 'Years of Experience', value: new Date().getFullYear() - 2020 },
-    { name: 'Public Projects', value: 3 },
+    { name: 'Public Projects', value: 5 },
     { name: 'Private Projects', value: 30 },
-    { name: 'Language', value: 1 },
+    { name: 'Languages', value: 2 },
 ];
 
 const Stats = () => {
