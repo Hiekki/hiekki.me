@@ -69,10 +69,11 @@ export const Projects = [
         title: 'Elenora',
         description:
             'Elenora is a feature rich RuneScape Clan administration discord bot with a wide variety of commands. The creation of Elenora was to provide a reliable, dependable, & helpful tool that would service any sized community.',
-        stack: [{ name: 'TypeScript' }, { name: 'MySQL' }, { name: 'TailwindCSS' }, { name: 'Git' }],
+        stack: [{ name: 'TypeScript' }, { name: 'MySQL' }, { name: 'Git' }],
         image: '/assets/projects/elenora.png',
         live: 'https://elenora.gg/',
         github: '#',
+        invite: 'https://discord.com/oauth2/authorize?client_id=735842992002433084',
     },
     {
         number: '02',
@@ -83,6 +84,7 @@ export const Projects = [
         image: '/assets/projects/simpleslash.png',
         live: 'https://www.npmjs.com/package/@elenoragroup/simple-slash',
         github: 'https://github.com/Hiekki/SimpleSlash',
+        invite: '#',
     },
     {
         number: '03',
@@ -93,6 +95,7 @@ export const Projects = [
         image: '/assets/projects/stubby.png',
         live: '#',
         github: 'https://github.com/Hiekki/Stubby',
+        invite: 'https://discord.com/oauth2/authorize?client_id=1262809684667011094',
     },
     {
         number: '04',
@@ -103,5 +106,6 @@ export const Projects = [
         image: '/assets/projects/notifyre.png',
         live: '#',
         github: 'https://github.com/Hiekki/NotiFyre',
+        invite: 'https://discord.com/oauth2/authorize?client_id=1248777984622465165',
     },
 ];
