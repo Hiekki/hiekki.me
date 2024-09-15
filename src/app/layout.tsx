@@ -18,6 +18,7 @@ export const metadata: Metadata = {
     authors: [{ name: 'Hiekki', url: 'https://hiekki.me' }],
     twitter: {
         images: '/assets/metadataPhoto.png',
+        card: 'summary',
     },
 };
 
