@@ -9,12 +9,14 @@ import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt, FaDiscord } from 'react-icons/f
 
 import { motion } from 'framer-motion';
 import { handleSubmit } from '@/utils';
+import ReCAPTCHA from 'react-google-recaptcha';
+import { useRef, useState } from 'react';
 
 const info = [
     {
         title: 'Email',
         icon: <FaEnvelope />,
-        description: 'abernathy.kevin.n@gmail.com',
+        description: 'hiekkii@gmail.com',
     },
     {
         title: 'Phone Number',
@@ -34,6 +36,13 @@ const info = [
 ];
 
 const ContactInfo = () => {
+    const recaptchaRef = useRef<ReCAPTCHA>(null);
+    const [token, setToken] = useState<string | null>(null);
+
+    const submit = async (event: FormData) => {
+        handleSubmit(event, token);
+    };
+
     return (
         <motion.section
             initial={{ opacity: 0 }}
@@ -43,7 +52,7 @@ const ContactInfo = () => {
             <div className='container mx-auto'>
                 <div className='flex flex-col gap-[30px] xl:flex-row'>
                     <div className='order-2 xl:order-none xl:w-[54%]'>
-                        <form className='flex flex-col gap-6 rounded-xl bg-zinc-300 p-10 dark:bg-zinc-700' action={handleSubmit}>
+                        <form className='flex flex-col gap-6 rounded-xl bg-zinc-300 p-10 dark:bg-zinc-700' action={submit}>
                             <h3 className='text-4xl text-purple-500'>Let's work together</h3>
                             <p className='mx-auto text-black/60 dark:text-white/60 xl:mx-0'>
                                 I'm always looking for new opportunities to work on. If you're interested in working together, please fill
@@ -70,7 +79,12 @@ const ContactInfo = () => {
                                 </SelectContent>
                             </Select>
                             <Textarea className='h-[200px]' placeholder='Type your message here' required name='message' />
-                            <Button className='max-w-40' size='md'>
+                            <ReCAPTCHA
+                                ref={recaptchaRef}
+                                sitekey={process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY!}
+                                onChange={(t) => setToken(t)}
+                            />
+                            <Button className='max-w-40' size='md' disabled={!token}>
                                 Send Message
                             </Button>
                         </form>

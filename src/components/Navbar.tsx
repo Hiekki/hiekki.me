@@ -4,7 +4,6 @@ import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { IoHomeOutline, IoPersonOutline, IoCodeWorkingOutline, IoDocumentTextOutline } from 'react-icons/io5';
 
-//Components
 import { FlipWords } from './ui/flip-words';
 import ThemeToggle from './ThemeToggle';
 import { MobileNavbar } from './MobileNavbar';
