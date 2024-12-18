@@ -46,7 +46,14 @@ const ContactInfo = () => {
     return (
         <motion.section
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1, transition: { delay: 2.4, duration: 0.4, ease: 'easeIn' } }}
+            animate={{
+                opacity: 1,
+                transition: {
+                    delay: 2.4,
+                    duration: 0.4,
+                    ease: 'easeIn',
+                },
+            }}
             className='py-6'
         >
             <div className='container mx-auto'>
