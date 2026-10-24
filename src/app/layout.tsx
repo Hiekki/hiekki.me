@@ -1,48 +1,29 @@
-import React from 'react';
+import type { Metadata, Viewport } from 'next';
+import { Archivo, JetBrains_Mono } from 'next/font/google';
+import { site } from '@/lib/data';
 import './globals.css';
-import { Space_Mono } from 'next/font/google';
-import Navbar from '@/components/Navbar';
-import PageTransition from '@/components/PageTransition';
-import StairTransition from '@/components/StairTransition';
-import { Metadata, Viewport } from 'next';
-import { AboutMe } from '@/utils/constants';
-import { ThemeProvider } from '@/components/theme-provider';
 
-const spaceMono = Space_Mono({ subsets: ['latin'], weight: ['400', '700'], variable: '--font-spaceMono' });
+// Archivo has a width axis, which gives the headings their slightly wide look.
+const archivo = Archivo({ subsets: ['latin'], axes: ['wdth'], variable: '--font-archivo', display: 'swap' });
+const mono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-jb', display: 'swap' });
+
+const name = site.nameLines.join(' ');
 
 export const metadata: Metadata = {
-    metadataBase: new URL('https://hiekki.me'),
-    title: 'Hiekki | Portfolio',
-    description: AboutMe.description,
-    keywords: ['hiekki', 'kevin', 'abernathy', 'kevin abernathy', 'software developer', 'nextjs', 'tailwindcss', 'typescript'],
-    authors: [{ name: 'Hiekki', url: 'https://hiekki.me' }],
-    twitter: {
-        images: '/assets/metadataPhoto.png',
-        card: 'summary',
-    },
+    // Set NEXT_PUBLIC_SITE_URL to your real address (for example https://yourname.com) so link previews work.
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://hiekki.me'),
+    title: `${name} | Portfolio`,
+    description: site.tagline,
+    openGraph: { title: name, description: site.tagline, type: 'website', siteName: name },
+    twitter: { card: 'summary_large_image', title: name, description: site.tagline },
 };
 
-export const viewport: Viewport = {
-    themeColor: [
-        { media: '(prefers-color-scheme: light)', color: '#a855f7' },
-        { media: '(prefers-color-scheme: dark)', color: '#a855f7' },
-    ],
-};
+export const viewport: Viewport = { themeColor: '#07090d', viewportFit: 'cover' };
 
-export default function RootLayout({
-    children,
-}: Readonly<{
-    children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
-        <html lang='en'>
-            <body className={`${spaceMono.variable}`}>
-                <ThemeProvider attribute='class' defaultTheme='system' enableSystem disableTransitionOnChange>
-                    <Navbar />
-                    <StairTransition />
-                    <PageTransition>{children}</PageTransition>
-                </ThemeProvider>
-            </body>
+        <html lang='en' className={`${archivo.variable} ${mono.variable}`}>
+            <body>{children}</body>
         </html>
     );
 }

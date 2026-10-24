@@ -1,65 +1,90 @@
-const terms = [
+import type { Metadata } from 'next';
+import LegalPage from '@/components/LegalPage';
+import type { LegalSection } from '@/components/LegalPage';
+import { legal } from '@/lib/legal';
+
+export const metadata: Metadata = { title: `Terms of Service | ${legal.group}` };
+
+const sections: LegalSection[] = [
     {
-        heading: 'Conditions of Use',
-        content:
-            'We will provide their services to you, which are subject to the conditions stated below in this document. Every time you visit this website, use its services or make a purchase, you accept the following conditions. This is why we urge you to read them carefully.',
+        heading: 'Accepting these terms',
+        paras: [
+            'By adding our bots to a server, using their commands or visiting our websites, you agree to these terms. If you do not agree, please do not use them.',
+        ],
     },
     {
-        heading: 'Privacy Policy',
-        content:
-            'Before you continue using our website we advise you to read our privacy policy, link below, regarding our user data collection. It will help you better understand our practices.',
+        heading: "Discord's rules also apply",
+        paras: ["Our bots run on Discord. You must follow Discord's Terms of Service and Community Guidelines when you use them."],
     },
     {
-        heading: 'Copyright',
-        content:
-            'Content published on this website (digital downloads, images, texts, graphics, logos) is the property of Hiekki and/or its content creators and protected by international copyright laws. The entire compilation of the content found on this website is the exclusive property of Hiekki, with copyright authorship for this compilation by Hiekki.',
+        heading: 'Using the bots',
+        list: [
+            "Do not use the bots to harass anyone, break the law or break Discord's rules",
+            'Do not try to exploit, overload, reverse engineer or attack the bots or their servers',
+            'Server owners and admins are responsible for how the bots are used in their server',
+        ],
+    },
+    {
+        heading: 'Availability',
+        paras: [
+            'The bots are provided as is. We may change, pause or stop any feature at any time, and we do not promise they will always be online or free of errors.',
+        ],
+    },
+    {
+        heading: 'Your content',
+        paras: [
+            'You are responsible for what you send to the bots. Content must not be illegal, defamatory, threatening, infringing or harmful. You give us a non-exclusive, royalty-free permission to process it as needed to run the bots. We may remove content that breaks these terms.',
+        ],
+    },
+    {
+        heading: 'Ownership',
+        paras: [
+            `The bots, their code, and the content, images, text and logos on our websites belong to ${legal.group} or its creators. You may use them for personal use, but you may not copy, download or modify them without written permission.`,
+        ],
     },
     {
         heading: 'Communications',
-        content:
-            'The entire communication with us is electronic. Every time you send us an email or visit our website, you are going to be communicating with us. You hereby consent to receive communications from us. If you subscribe to the news on our website, you are going to receive regular messages from us. We will continue to communicate with you by posting news and notices on our website and by sending you messages. You also agree that all notices, disclosures, agreements and other communications we provide to you electronically meet the legal requirements that such communications be in writing.',
+        paras: [
+            'We communicate with you electronically, through Discord or by email. By using our services you agree to receive notices this way.',
+        ],
     },
     {
-        heading: 'Applicable Law',
-        content:
-            'By visiting this website, you agree that the laws of Arkansas, without regard to principles of conflict laws, will govern these terms of service, or any dispute of any sort that might come between Hiekki and you, or its business partners and associates.',
+        heading: 'Ending access',
+        paras: ['We may block a user or server, or remove access to the bots, at our discretion, especially if these terms are broken.'],
     },
     {
-        heading: 'Disputes',
-        content:
-            'Any dispute related in any way to your visit to this website or to products you purchase from us shall be arbitrated by state or federal court of Arkansas and you consent to exclusive jurisdiction and venue of such courts.',
+        heading: 'Limit of liability',
+        paras: [
+            `To the fullest extent the law allows, ${legal.group} is not liable for any damages that come from using or being unable to use the bots or websites.`,
+        ],
     },
     {
-        heading: 'Comments, Reviews, and Emails',
-        content:
-            'Visitors may post content as long as it is not obscene, illegal, defamatory, threatening, infringing of intellectual property rights, invasive of privacy or injurious in any other way to third parties. Content has to be free of software viruses, political campaign, and commercial solicitation.\n\nWe reserve all rights (but not the obligation) to remove and/or edit such content. When you post your content, you grant Hiekki non-exclusive, royalty-free and irrevocable right to use, reproduce, publish, modify such content throughout the world in any media.',
+        heading: 'Privacy',
+        paras: ['Our Privacy Policy, at /privacy, explains how we handle your information.'],
     },
     {
-        heading: 'License and Site Access',
-        content:
-            'We grant you a limited license to access and make personal use of this website. You are not allowed to download or modify it. This may be done only with written consent from us.',
+        heading: 'Governing law and disputes',
+        paras: [
+            'These terms are governed by the laws of the State of Arkansas. Any dispute is decided in the state or federal courts of Arkansas, which have exclusive jurisdiction.',
+        ],
     },
     {
-        heading: 'User Account',
-        content:
-            'If you are an owner of an account on this website, you are solely responsible for maintaining the confidentiality of your private user details (username and password). You are responsible for all activities that occur under your account or password.\n\nWe reserve all rights to terminate accounts, edit or remove content and cancel orders in their sole discretion.',
+        heading: 'Changes to these terms',
+        paras: ['We may update these terms from time to time. Changes will be posted on this page with a new date at the top.'],
+    },
+    {
+        heading: 'Contact',
+        paras: [`Questions about these terms can be sent to ${legal.contact}.`],
     },
 ];
 
-export default function TOS() {
+export default function Tos() {
     return (
-        <section className='h-full'>
-            <div className='container mx-auto h-full py-12'>
-                <h1 className='pb-12 text-center text-4xl font-bold'>Terms of Service</h1>
-                {terms.map((item, index) => {
-                    return (
-                        <div key={index} className='flex flex-col gap-6'>
-                            <h2 className='text-4xl font-bold'>{item.heading}</h2>
-                            <p className='pb-8 text-black/60 dark:text-white/60'>{item.content}</p>
-                        </div>
-                    );
-                })}
-            </div>
-        </section>
+        <LegalPage
+            title='Terms of Service'
+            updated={legal.updated}
+            intro={`These terms cover your use of ${legal.bots} and the websites run by ${legal.group}.`}
+            sections={sections}
+        />
     );
 }

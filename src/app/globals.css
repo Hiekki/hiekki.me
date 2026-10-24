@@ -1,55 +1,140 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-*::-webkit-scrollbar {
-    width: 7.5px;
+@theme inline {
+    --color-bg: #07090d;
+    --color-card: rgba(13, 17, 25, 0.84);
+    --color-edge: #252d3e;
+    --color-muted: #a3adbf;
+    --color-fg: #eef1f6;
+    --font-sans: var(--font-archivo), 'Avenir Next', 'Segoe UI', system-ui, sans-serif;
+    --font-mono: var(--font-jb), ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
 }
 
-*::-webkit-scrollbar-track {
-    background: var('bg-primary dark:bg-dark');
+html {
+    background: var(--color-bg);
+    color-scheme: dark;
 }
 
-*::-webkit-scrollbar-thumb {
-    background: #a855f7;
+body {
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
 }
 
-*::-webkit-scrollbar-thumb:hover {
-    background: #c084fc;
+h1,
+h2,
+h3 {
+    font-stretch: 108%;
 }
 
-* {
-    scroll-behavior: smooth;
+:focus-visible {
+    outline: 2px solid #ffb938;
+    outline-offset: 3px;
 }
 
-@layer base {
-    body {
-        @apply bg-primary font-primary leading-loose text-black dark:bg-dark dark:text-white;
-    }
-    .h1 {
-        @apply text-[48px] font-semibold leading-[1.1] xl:text-[80px];
-    }
-    .h2 {
-        @apply text-[36px] font-semibold leading-[1.1] xl:text-[48px];
-    }
-    .h3 {
-        @apply text-[20px] font-semibold leading-[1.1] xl:text-[24px];
-    }
-    .text-outline {
-        -webkit-text-stroke: 1px #202020;
-    }
-
-    .text-outline-dark {
-        -webkit-text-stroke: 1px #ffffff;
-    }
+/* Each section sits in a fixed window. The scene fades it in and scrolls its content. */
+.panel {
+    position: fixed;
+    z-index: 6;
+    left: 0;
+    right: 0;
+    top: 68px;
+    bottom: 88px;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+    -webkit-mask-image: linear-gradient(transparent 0, #000 22px, #000 calc(100% - 22px), transparent 100%);
+    mask-image: linear-gradient(transparent 0, #000 22px, #000 calc(100% - 22px), transparent 100%);
 }
 
-.no-visible-scrollbar {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    -webkit-overflow-scrolling: touch;
+/* The vertical career path inside a job card with several titles. */
+.path-step {
+    position: relative;
+    padding: 0 0 18px 26px;
 }
-
-.no-visible-scrollbar::-webkit-scrollbar {
+.path-step:last-child {
+    padding-bottom: 0;
+}
+.path-step::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 8px;
+    bottom: -2px;
+    width: 2px;
+    background: var(--color-edge);
+}
+.path-step:last-child::before {
     display: none;
+}
+.path-step::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--color-card);
+    border: 2px solid var(--c);
+}
+.path-step.now::after {
+    background: var(--c);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--c) 22%, transparent);
+}
+
+.scroll-cue {
+    display: block;
+    width: 2px;
+    height: 40px;
+    border-radius: 2px;
+    background: linear-gradient(#ffb938, transparent);
+    transform-origin: top;
+    animation: cue 1.8s ease-in-out infinite;
+}
+@keyframes cue {
+    0% {
+        transform: scaleY(0);
+        opacity: 1;
+    }
+    70% {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scaleY(1);
+        opacity: 0;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .scroll-cue {
+        animation: none;
+    }
+}
+
+/* The résumé page prints as a clean white document. */
+@media print {
+    @page {
+        margin: 14mm;
+    }
+    html,
+    body,
+    .resume-wrap {
+        background: #fff !important;
+    }
+    .resume-wrap {
+        padding: 0 !important;
+    }
+    .resume-paper {
+        max-width: none !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+    }
+    .no-print {
+        display: none !important;
+    }
 }
